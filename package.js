@@ -1,8 +1,8 @@
 Package.describe({
-    name: "benjaminrh:user-session",
+    name: "d3k4y:user-session",
     summary: "Provides a UserSession object that works just like Session does, except it's persistent so you can preserve state across devices *and* sessions.",
     version: "0.3.0",
-    git: "https://bitbucket.org/corefi/corefi-datenraum.git",
+    git: "https://github.com/d3k4y/meteor-user-session.git",
 });
 
 Package.on_use(function (api) {
@@ -19,13 +19,4 @@ Package.on_use(function (api) {
     api.mainModule('client.js', 'client');
     api.mainModule('server.js', 'server');
 
-    /*
-    api.add_files('common.js', both);
-    api.add_files('server.js', 'server');
-    api.add_files('client.js', 'client');
-
-    if (typeof api.export !== 'undefined') {
-        api.export(['UserSession', 'UserSessionCollection'], both);
-    }
-    */
 });
