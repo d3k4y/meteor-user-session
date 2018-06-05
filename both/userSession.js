@@ -1,5 +1,5 @@
 // This collection is where the UserSession variables are ultimately stored
-UserSessionCollection = new Meteor.Collection('userSessionCollection');
+export const UserSessionCollection = new Meteor.Collection('userSessionCollection');
 
 // Anonymous user error
 noUserError = function () {
@@ -11,12 +11,11 @@ noUserIdError = function () {
 	console.log('You cannot use UserSession methods on the server without a userId.');
 }
 
-
 //=======================
 // = UserSession METHODS
 //=======================
 
-UserSession = {
+export const UserSession = {
 	set: function (key, value, userId) {
 		// Set a new variable in the user session
 		if (Meteor.userId() || Meteor.isServer) {

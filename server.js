@@ -1,22 +1,16 @@
-// Publish only the current user's session variables to the client
-Meteor.publish('userSessionCollection', function () {
-	return UserSessionCollection.find({ userId: this.userId });
-});
+import {UserSession as UserSession_, UserSessionCollection as UserSessionCollection_} from './both/userSession';
+import './server/userSession';
 
-// Check that the userId specified owns the documents
-ownsDocument = function (userId, doc) {
-	return doc && doc.userId === userId;
+export const UserSession = UserSession_;
+export const UserSessionCollection = UserSessionCollection_;
+
+
+/*
+api.add_files('common.js', both);
+api.add_files('server.js', 'server');
+api.add_files('client.js', 'client');
+
+if (typeof api.export !== 'undefined') {
+    api.export(['UserSession', 'UserSessionCollection'], both);
 }
-
-// Allow methods for UserSessionCollection (security)
-UserSessionCollection.allow({
-	insert: function (userId, doc) {
-		return ownsDocument(userId, doc);
-	},
-	update: function (userId, doc) {
-		return ownsDocument(userId, doc);
-	},
-	remove: function (userId, doc) {
-		return ownsDocument(userId, doc);
-	}
-});
+*/
